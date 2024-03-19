@@ -1,4 +1,5 @@
 import Title from "./components/Title/Title.jsx";
+import Button from "./components/Button/Button.jsx";
 
 function App() {
 
@@ -20,7 +21,9 @@ function App() {
       <div className="row">
         <div className="col text-center">
           <div className="p-5">
-            <button type="button" className="btn btn-primary btn-lg">Ajouter</button>
+            <Button buttonColor="btn-outline-success" buttonHandler={() => alert('Ajout OK')}>Ajouter</Button>
+            <Button buttonColor="btn-outline-warning" buttonHandler={() => alert('Modif OK')}>Modifier</Button>
+            <Button buttonColor="btn-outline-danger" buttonHandler={() => alert('Suppr OK')}>Supprimer</Button>
           </div>
         </div>
       </div>
