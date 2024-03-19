@@ -1,5 +1,7 @@
 import Title from "./components/Title/Title.jsx";
 import Button from "./components/Button/Button.jsx";
+import Books from "./containers/Books/Books.jsx"
+import "./App.css";
 
 function App() {
 
@@ -13,17 +15,13 @@ function App() {
       </div>
       <div className="row">
         <div className="col">
-          <div>
-            <p>Livres</p>
-          </div>
+          <Books />
         </div>
       </div>
       <div className="row">
         <div className="col text-center">
           <div className="p-5">
-            <Button buttonColor="btn-outline-success" buttonHandler={() => alert('Ajout OK')}>Ajouter</Button>
-            <Button buttonColor="btn-outline-warning" buttonHandler={() => alert('Modif OK')}>Modifier</Button>
-            <Button buttonColor="btn-outline-danger" buttonHandler={() => alert('Suppr OK')}>Supprimer</Button>
+            <Button buttonSize="btn-lg" buttonColor="btn-outline-success" buttonHandler={() => alert('Ajout OK')}>Ajouter</Button>
           </div>
         </div>
       </div>

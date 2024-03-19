@@ -1,0 +1,27 @@
+.btnAnimate {
+    animation: zoomOut 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.btnAnimate:hover {
+    animation: zoomIn 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(1.0);
+    }
+
+    to {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes zoomOut {
+    from {
+        transform: scale(1.02);
+    }
+
+    to {
+        transform: scale(1.0);
+    }
+}

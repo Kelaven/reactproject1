@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./Button.module.css";
 
 
 const Button = (props) => {
@@ -18,14 +19,15 @@ const Button = (props) => {
     //         break;
     // }
     // const buttonStyle = `btn ${buttonColor}`;
-    const buttonStyle = `btn ${props.buttonColor}`; // il vaut mieux passer par un props et des propriétés dans App.jsx
+    const buttonStyle = `btn ${props.buttonColor} ${props.buttonSize}`; // il vaut mieux passer par un props et des propriétés dans App.jsx
 
+    const buttonAnimation = `${classes.btnAnimate}`;
 
 
     // * Retour * //
     return (
         <>
-            <button type="button" className={buttonStyle} onClick={props.buttonHandler}>{props.children}</button>
+            <button type="button" className={`${buttonStyle} ${buttonAnimation}`} onClick={props.buttonHandler}>{props.children}</button>
         </>
     );
 

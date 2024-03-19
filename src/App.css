@@ -1,0 +1,6 @@
+thead{
+    border-bottom: solid 1px #475785;
+}
+.customPadding th{
+    padding-bottom: 200px;
+}
