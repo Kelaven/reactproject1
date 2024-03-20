@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../components/Button/Button.jsx"
+import Book from "./Book/Book.jsx";
 
 
 const Books = (props) => {
@@ -24,24 +24,13 @@ const Books = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {allBooks.map(allBook => {
-                            console.log('cc');
-                            return <tr className="text-center" key={allBook.id}>
-                                <td>{allBook.title}</td>
-                                <td>{allBook.author}</td>
-                                <td>{allBook.pages}</td>
-                                <td>
-                                    <Button buttonSize="btn-sm me-1 me-xl-5 mb-2 mb-md-0" buttonColor="btn-outline-warning" buttonHandler={() => alert('Modif OK')}>Modifier</Button>
-                                    <Button buttonSize="btn-sm" buttonColor="btn-outline-danger" buttonHandler={() => alert('Suppr OK')}>Supprimer</Button>
-                                </td>
-                            </tr>
+                        {allBooks.map(book => {
+                            return (
+                                <tr className="text-center" key={book.id}>
+                                    <Book {...book} />
+                                </tr>
+                            );
                         })}
-                        {/* <tr>
-                            <th scope="row">Default</th>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                            <td>Column content</td>
-                        </tr> */}
                     </tbody>
                 </table>
             </div>
