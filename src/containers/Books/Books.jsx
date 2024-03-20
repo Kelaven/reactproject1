@@ -12,9 +12,9 @@ const Books = (props) => {
     ]);
 
     const deleteBookHandler = (id) => {
-        let newAllBooks = allBooks.filter(allBook => allBook.id != id); // filter retourne un nouveau tableau donc l'immutabilité est respectée
-        // id fait référence à la propriété id de l'objet livre actuellement traité par map
-        // book.id fait référence à la propriété id du nouvel objet livre traité par filter dans le nouveau tableau
+        let newAllBooks = allBooks.filter(allBook => allBook.id != id); // filter retourne un nouveau tableau donc l'immutabilité est respectée. Je m'en sers pour que le nouveau tableau exclue le livre sur lequel on a cliqué. 
+        // id fait référence à la propriété id de l'objet livre traité par map
+        // allBook.id fait référence à la propriété id du nouvel objet livre traité par filter dans le nouveau tableau
         setAllBooks(newAllBooks);
     }
 
@@ -36,8 +36,8 @@ const Books = (props) => {
                             return (
                                 <tr className="text-center" key={book.id}>
                                     <Book {...book} delete={() => deleteBookHandler(book.id)} /> 
-                                    {/* utilisation d'une fonction fléchée pour deleteBookHandler afin que ça ne s'exécute pas immédiatement quand le composant est rendu. 
-                                    On lui passe l'id du livre en argument pour le récupérer */}
+                                    {/* Une fonction fléchée est utilisée pour retarder l'exécution de deleteBookHandler jusqu'au clic sur le bouton. 
+                                    L'ID du livre est passé à la fonction pour identifier quel livre supprimer. */}
                                 </tr>
                             );
                         })}
