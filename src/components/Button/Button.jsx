@@ -24,7 +24,7 @@ const Button = (props) => {
     const buttonAnimation = `${classes.btnAnimate}`;
 
 
-    // * Retour * //
+
     return (
         <>
             <button type="button" className={`${buttonStyle} ${buttonAnimation}`} onClick={props.buttonHandler}>{props.children}</button>
