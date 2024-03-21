@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Book from "./Book/Book.jsx";
+import AddForm from "./AddForm/AddForm.jsx";
 
 
 const Books = (props) => {
@@ -20,31 +21,31 @@ const Books = (props) => {
 
 
     return (
-        <>
-            <div>
-                <table className="table table-hover">
-                    <thead>
-                        <tr className="text-center">
-                            <th scope="col">Titre</th>
-                            <th scope="col">Auteur</th>
-                            <th scope="col">Nbe de pages</th>
-                            <th scope="col" colSpan="2">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {allBooks.map(book => {
-                            return (
-                                <tr className="text-center" key={book.id}>
-                                    <Book {...book} delete={() => deleteBookHandler(book.id)} /> 
-                                    {/* Une fonction fléchée est utilisée pour retarder l'exécution de deleteBookHandler jusqu'au clic sur le bouton. 
+        <div>
+            <table className="table table-hover">
+                <thead>
+                    <tr className="text-center">
+                        <th scope="col">Titre</th>
+                        <th scope="col">Auteur</th>
+                        <th scope="col">Nbe de pages</th>
+                        <th scope="col" colSpan="2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {allBooks.map(book => {
+                        return (
+                            <tr className="text-center" key={book.id}>
+                                <Book {...book} delete={() => deleteBookHandler(book.id)} />
+                                {/* Une fonction fléchée est utilisée pour retarder l'exécution de deleteBookHandler jusqu'au clic sur le bouton. 
                                     L'ID du livre est passé à la fonction pour identifier quel livre supprimer. */}
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
-            </div>
-        </>
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </table>
+            {props.displayForm && <AddForm />} {/* écriture plus rapide que : */}
+            {/* {props.displayForm ? <AddForm /> : null} */}
+        </div>
     );
 
 }
