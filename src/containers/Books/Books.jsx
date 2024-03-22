@@ -19,11 +19,13 @@ const Books = (props) => {
         setAllBooks(newAllBooks);
     }
 
-    const addBookHandler = (addedBook) => {
-        const lastBook= allBooks[allBooks.length-1]; // obtenir le dernier élément du tableau
+    const addBookHandler = (bookTitle, bookAuthor, bookPages) => {
+        const lastBook= allBooks[allBooks.length-1]; // obtenir le dernier élément du tableau existant
+        let lastBookId = lastBook.id;
+        console.log(lastBookId);
         let newAllBooks = [ // nouveau tableau
             ...allBooks, // qui contient tous les anciens éléments
-            { id: lastBook.id++, title: bookTitle, author: bookAuthor, pages: bookPages } // et un nouvel élément à la fin, avec un id unique
+            { id: lastBookId +1, title: bookTitle, author: bookAuthor, pages: bookPages } // et un nouvel élément à la fin, avec un id unique
         ]
         setAllBooks(newAllBooks);
     }
@@ -52,8 +54,8 @@ const Books = (props) => {
                     })}
                 </tbody>
             </table>
-            {props.displayForm && <AddForm />} {/* écriture plus rapide que : */}
-            {/* {props.displayForm ? <AddForm /> : null} */}
+            {props.displayForm && <AddForm validation={addBookHandler} />} {/* écriture plus rapide que : */}
+            {/* {props.displayForm ? <AddForm validation={addBookHandler} /> : null} */}
         </div>
     );
 
