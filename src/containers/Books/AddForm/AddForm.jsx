@@ -20,6 +20,9 @@ const AddForm = (props) => {
     const validateFormHandler = (e) => {
         e.preventDefault();
         props.validation(bookTitle, bookAuthor, bookPages);
+        setBookTitle(""); // quand un livre a été ajouté, retirer la valeur de l'input pour pouvoir y entrer une nouvelle directement
+        setBookAuthor("");
+        setBookPages("");
     };
 
     return (
